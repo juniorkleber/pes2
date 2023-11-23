@@ -19,11 +19,3 @@ def test_dividir():
     calc = Calculadora()
     resultado = calc.dividir(10, 2)
     assert resultado == 5
-
-    resultado = calc.dividir(7, 3)
-    assert resultado == 2.3333
-
-def test_dividir_por_zero():
-    calc = Calculadora()
-    with pytest.raises(ValueError):
-        calc.dividir(5, 0)

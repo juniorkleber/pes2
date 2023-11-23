@@ -1,26 +1,29 @@
-import unittest
 from calculadora import Calculadora
 
-class TestCalculadora(unittest.TestCase):
+def test_somar():
+    calc = Calculadora()
+    resultado = calc.somar(3, 5)
+    assert resultado == 8
 
-    def setUp(self):
-        self.calculadora = Calculadora()
+def test_subtrair():
+    calc = Calculadora()
+    resultado = calc.subtrair(8, 3)
+    assert resultado == 5
 
-    def test_somar(self):
-        self.assertEqual(self.calculadora.somar(3, 5), 8)
+def test_multiplicar():
+    calc = Calculadora()
+    resultado = calc.multiplicar(4, 6)
+    assert resultado == 24
 
-    def test_subtrair(self):
-        self.assertEqual(self.calculadora.subtrair(8, 3), 5)
+def test_dividir():
+    calc = Calculadora()
+    resultado = calc.dividir(10, 2)
+    assert resultado == 5
 
-    def test_multiplicar(self):
-        self.assertEqual(self.calculadora.multiplicar(4, 6), 24)
+    resultado = calc.dividir(7, 3)
+    assert resultado == 2.3333
 
-    def test_dividir(self):
-        self.assertEqual(self.calculadora.dividir(10, 2), 5)
-
-    def test_dividir_por_zero(self):
-        with self.assertRaises(ValueError):
-            self.calculadora.dividir(5, 0)
-
-if __name__ == '__main__':
-    unittest.main()
+def test_dividir_por_zero():
+    calc = Calculadora()
+    with pytest.raises(ValueError):
+        calc.dividir(5, 0)
